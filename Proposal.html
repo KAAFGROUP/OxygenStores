@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقترح تطوير تطبيق الهاتف المحمول | KAAF Marketing</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cairo & IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kaaf: {
+                            blue: '#0A4C86',
+                            blueLight: '#1E75C6',
+                            blueDeep: '#05233E',
+                            blueDarkest: '#031322',
+                            green: '#00875A',
+                            greenLight: '#00B377',
+                            gold: '#D4AF37',
+                            goldLight: '#F5DE88',
+                            purple: '#7C3AED',
+                            purpleLight: '#A78BFA',
+                            rose: '#E11D48',
+                            roseLight: '#FB7185',
+                            cyan: '#06B6D4',
+                            cyanLight: '#67E8F9',
+                            amber: '#F59E0B',
+                            dark: '#050B14',
+                            darkSlate: '#0A1424',
+                            cardBg: '#0F1E34',
+                            border: '#1E3250'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        ibm: ['IBM Plex Sans Arabic', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'premium': '0 25px 60px -15px rgba(0, 0, 0, 0.6)',
+                        'blue-glow': '0 0 35px rgba(10, 76, 134, 0.4)',
+                        'green-glow': '0 0 35px rgba(0, 135, 90, 0.35)',
+                        'purple-glow': '0 0 35px rgba(124, 58, 237, 0.35)',
+                        'rose-glow': '0 0 35px rgba(225, 29, 72, 0.35)',
+                        'amber-glow': '0 0 35px rgba(245, 158, 11, 0.35)',
+                        'cyan-glow': '0 0 35px rgba(6, 182, 212, 0.35)',
+                        'card-float': '0 20px 40px -10px rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #050B14;
+            color: #F1F5F9;
+        }
+
+        /* Tech Mesh Pattern with Colorful Radial Aura */
+        .tech-grid-bg {
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(10, 76, 134, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 25%, rgba(124, 58, 237, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 50% 60%, rgba(6, 182, 212, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 20% 85%, rgba(0, 135, 90, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 85% 90%, rgba(225, 29, 72, 0.15) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+        }
+
+        /* Colorful Brand Ribbon */
+        .kaaf-colorful-ribbon {
+            background: linear-gradient(90deg, 
+                #0A4C86 0%, 
+                #06B6D4 20%, 
+                #00875A 40%, 
+                #D4AF37 60%, 
+                #7C3AED 80%, 
+                #E11D48 100%
+            );
+            height: 5px;
+        }
+
+        /* Colorful Floating Cards */
+        .card-accent-blue {
+            background: linear-gradient(145deg, rgba(15, 30, 52, 0.95), rgba(7, 18, 33, 0.98));
+            border: 1.5px solid rgba(30, 117, 198, 0.45);
+        }
+        .card-accent-blue:hover {
+            border-color: rgba(30, 117, 198, 0.85);
+            box-shadow: 0 15px 35px -5px rgba(10, 76, 134, 0.4);
+        }
+
+        .card-accent-green {
+            background: linear-gradient(145deg, rgba(15, 36, 40, 0.95), rgba(6, 22, 23, 0.98));
+            border: 1.5px solid rgba(0, 179, 119, 0.45);
+        }
+        .card-accent-green:hover {
+            border-color: rgba(0, 179, 119, 0.85);
+            box-shadow: 0 15px 35px -5px rgba(0, 135, 90, 0.4);
+        }
+
+        .card-accent-purple {
+            background: linear-gradient(145deg, rgba(28, 20, 50, 0.95), rgba(14, 9, 28, 0.98));
+            border: 1.5px solid rgba(167, 139, 250, 0.45);
+        }
+        .card-accent-purple:hover {
+            border-color: rgba(167, 139, 250, 0.85);
+            box-shadow: 0 15px 35px -5px rgba(124, 58, 237, 0.4);
+        }
+
+        .card-accent-rose {
+            background: linear-gradient(145deg, rgba(38, 16, 28, 0.95), rgba(20, 7, 14, 0.98));
+            border: 1.5px solid rgba(251, 113, 133, 0.45);
+        }
+        .card-accent-rose:hover {
+            border-color: rgba(251, 113, 133, 0.85);
+            box-shadow: 0 15px 35px -5px rgba(225, 29, 72, 0.4);
+        }
+
+        .card-accent-amber {
+            background: linear-gradient(145deg, rgba(38, 28, 14, 0.95), rgba(22, 15, 6, 0.98));
+            border: 1.5px solid rgba(245, 158, 11, 0.45);
+        }
+        .card-accent-amber:hover {
+            border-color: rgba(245, 158, 11, 0.85);
+            box-shadow: 0 15px 35px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        .card-accent-cyan {
+            background: linear-gradient(145deg, rgba(12, 34, 46, 0.95), rgba(5, 19, 27, 0.98));
+            border: 1.5px solid rgba(6, 182, 212, 0.45);
+        }
+        .card-accent-cyan:hover {
+            border-color: rgba(6, 182, 212, 0.85);
+            box-shadow: 0 15px 35px -5px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Lively Floating Animations with Soft Glow Drop Shadows */
+        @keyframes float-alive-left {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 10px 25px -5px rgba(10, 76, 134, 0.5), 0 0 20px rgba(30, 117, 198, 0.4);
+            }
+            50% {
+                transform: translateY(-9px) rotate(1deg);
+                box-shadow: 0 20px 35px -5px rgba(10, 76, 134, 0.7), 0 0 32px rgba(30, 117, 198, 0.6);
+            }
+        }
+
+        @keyframes float-alive-right {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.45), 0 0 20px rgba(37, 211, 102, 0.35);
+            }
+            50% {
+                transform: translateY(-9px) scale(1.04);
+                box-shadow: 0 20px 35px -5px rgba(37, 211, 102, 0.7), 0 0 32px rgba(37, 211, 102, 0.55);
+            }
+        }
+
+        .animate-floating-kaaf {
+            animation: float-alive-left 4s ease-in-out infinite;
+        }
+
+        .animate-floating-whatsapp {
+            animation: float-alive-right 4s ease-in-out infinite 0.7s;
+        }
+
+        /* Print/PDF Optimization */
+        @media print {
+            body {
+                background: #FFFFFF !important;
+                color: #0F172A !important;
+                font-size: 12pt !important;
+            }
+            #top-nav, #floating-kaaf-btn, #floating-wa-btn, .no-print {
+                display: none !important;
+            }
+            .page-break {
+                page-break-before: always;
+                break-before: page;
+            }
+            .tech-grid-bg {
+                background: none !important;
+            }
+            .card-accent-blue, .card-accent-green, .card-accent-purple, .card-accent-rose, .card-accent-amber, .card-accent-cyan, .bg-kaaf-cardBg, .bg-kaaf-darkSlate, .bg-kaaf-dark {
+                background: #FFFFFF !important;
+                border: 1px solid #CBD5E1 !important;
+                color: #0F172A !important;
+                box-shadow: none !important;
+            }
+            h1, h2, h3, h4, strong, span, p {
+                color: #0F172A !important;
+                text-shadow: none !important;
+            }
+            .shadow-premium, .shadow-card-float {
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="tech-grid-bg antialiased selection:bg-kaaf-blue selection:text-white">
+
+    <!-- TOP STICKY NAVIGATION BAR -->
+    <header id="top-nav" class="sticky top-0 z-40 bg-kaaf-dark/85 backdrop-blur-lg border-b border-kaaf-border/60 px-4 lg:px-12 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Badge -->
+            <a href="https://kaafmarketing.sa/" target="_blank" class="flex items-center gap-3.5 group">
+                <div class="w-10 h-10 rounded-xl overflow-hidden border border-kaaf-blueLight/50 shadow-blue-glow transition-transform group-hover:scale-105 bg-black p-0.5 shrink-0">
+                    <img src="https://i.ibb.co/qLQcG9vr/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="KAAF Marketing Logo" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm font-black text-white tracking-wide font-ibm">KAAF Marketing</span>
+                        <span class="px-2 py-0.5 rounded-md bg-kaaf-blue/30 text-kaaf-blueLight text-[10px] font-extrabold border border-kaaf-blue/50">مقترح فني وتجاري</span>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-medium">تطوير تطبيق الموبايل المرتبط بالمتجر الإلكتروني</p>
+                </div>
+            </a>
+
+            <!-- Quick Jump Anchor Links -->
+            <div class="flex items-center gap-3">
+                <nav class="flex items-center gap-4 sm:gap-6 text-xs font-bold text-gray-300">
+                    <a href="#summary" class="hover:text-kaaf-cyanLight transition">الملخص</a>
+                    <a href="#objectives" class="hover:text-kaaf-greenLight transition">الأهداف</a>
+                    <a href="#scope" class="hidden sm:inline hover:text-kaaf-blueLight transition">نطاق العمل</a>
+                    <a href="#integration" class="hidden md:inline hover:text-kaaf-purpleLight transition">الربط بالمتجر</a>
+                    <a href="#push" class="hidden md:inline hover:text-kaaf-roseLight transition">الإشعارات</a>
+                    <a href="#roadmap" class="hidden sm:inline hover:text-kaaf-cyanLight transition">خطة العمل</a>
+                    <a href="#pricing" class="hover:text-kaaf-gold transition text-kaaf-gold font-black">الباقات والاستثمار</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- FLOATING KAAF LOGO BUTTON (BOTTOM LEFT - PURE CIRCULAR LOGO) -->
+    <aside id="floating-kaaf-btn" class="fixed bottom-6 left-6 z-50">
+        <a href="https://kaafmarketing.sa/" target="_blank" title="KAAF Marketing | الموقع الرسمي" class="block w-14 h-14 rounded-full overflow-hidden border-2 border-kaaf-blueLight/90 p-0.5 bg-black/90 animate-floating-kaaf transition-transform hover:scale-115 active:scale-95 group backdrop-blur-md">
+            <img src="https://i.ibb.co/qLQcG9vr/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="KAAF Marketing Logo" class="w-full h-full object-cover rounded-full">
+        </a>
+    </aside>
+
+    <!-- FLOATING WHATSAPP BUTTON (BOTTOM RIGHT - MATCHING KAAF SIZE & ACTIVE FLOATING) -->
+    <aside id="floating-wa-btn" class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/966558029554" target="_blank" title="تواصل معنا مباشرة عبر واتساب" class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center border-2 border-emerald-200/80 animate-floating-whatsapp transition-transform hover:scale-115 active:scale-95 group shadow-lg">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+    </aside>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-24">
+
+        <!-- ========================================================================= -->
+        <!-- COVER PAGE / HERO SECTION (DOMINANT KAAF BLUE + MULTI-ACCENTS)           -->
+        <!-- ========================================================================= -->
+        <section class="relative rounded-3xl overflow-hidden p-8 sm:p-14 lg:p-20 bg-gradient-to-br from-kaaf-blueDeep via-kaaf-darkSlate to-kaaf-darkest border border-kaaf-blue/50 shadow-premium text-white">
+            <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+            <!-- Ambient Background Radial Lighting -->
+            <div class="absolute -right-20 -top-20 w-96 h-96 bg-kaaf-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-kaaf-purple/25 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-kaaf-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Cover Text (7 Cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kaaf-blue/30 border border-kaaf-blueLight/40 text-kaaf-cyanLight text-xs font-bold font-ibm tracking-wide">
+                        <i class="fa-solid fa-mobile-screen-button text-kaaf-blueLight"></i>
+                        <span>Mobile Application Development Proposal</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+                            مقترح تطوير <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-l from-kaaf-cyan via-kaaf-blueLight to-kaaf-purpleLight">
+                                تطبيق الهاتف المحمول
+                            </span>
+                        </h1>
+                        <p class="text-lg sm:text-xl font-bold text-sky-100/95 leading-relaxed font-cairo">
+                            تطبيق ذكي ومتكامل مرتبط مباشرة بالمتجر الإلكتروني الحالي لتعزيز المبيعات وولاء العملاء
+                        </p>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl font-normal">
+                        صُمم هذا المقترح خصيصاً لتحويل تواجدكم التجاري إلى تجربة تسوق مباشرة داخل هواتف عملائكم، مع مزامنة لحظية للمنتجات والطلبات، والاستفادة من قوة الإشعارات الفورية لرفع معدل تكرار الشراء.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap items-center gap-4 text-xs font-bold text-gray-300">
+                        <div class="flex items-center gap-2 bg-black/50 px-4 py-2.5 rounded-xl border border-kaaf-blue/40">
+                            <span class="text-kaaf-cyanLight">إعداد وتقديم:</span>
+                            <span class="text-white font-black">KAAF Marketing</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-black/50 px-4 py-2.5 rounded-xl border border-kaaf-gold/40">
+                            <span class="text-kaaf-gold">المدة القياسية:</span>
+                            <span class="text-white font-black">15 يوم عمل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cover Visual Graphic (5 Cols) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <!-- Phone Frame Mockup Accent -->
+                        <div class="w-full bg-gradient-to-b from-kaaf-cardBg via-kaaf-darkSlate to-kaaf-dark rounded-[40px] p-4 border-2 border-kaaf-blueLight/30 shadow-2xl relative overflow-hidden">
+                            <div class="w-24 h-4 bg-white/10 rounded-full mx-auto mb-4"></div>
+                            
+                            <!-- Mockup Screen Content -->
+                            <div class="space-y-3 bg-kaaf-darkSlate/95 rounded-[28px] p-5 border border-white/10 text-center">
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-kaaf-blue via-kaaf-cyan to-kaaf-purple flex items-center justify-center mx-auto text-white text-2xl shadow-blue-glow">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <div class="text-base font-black text-white">متجرك الإلكتروني على الموبايل</div>
+                                <div class="text-xs text-gray-400">مزامنة كاملة للمخزون • السلة • المدفوعات</div>
+                                
+                                <div class="pt-3 space-y-2">
+                                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-kaaf-blue/20 border border-kaaf-blue/40 text-xs">
+                                        <span class="flex items-center gap-2 text-kaaf-cyanLight font-bold">
+                                            <i class="fa-solid fa-bolt"></i> تصفح فائق السرعة
+                                        </span>
+                                        <span class="text-[10px] text-gray-400 font-mono">Native iOS/Android</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-kaaf-purple/20 border border-kaaf-purple/40 text-xs">
+                                        <span class="flex items-center gap-2 text-kaaf-purpleLight font-bold">
+                                            <i class="fa-solid fa-bell"></i> إشعارات فورية مخصصة
+                                        </span>
+                                        <span class="text-[10px] text-emerald-400 font-bold">Instant Reach</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 01: EXECUTIVE SUMMARY (COLORFUL CARDS)                            -->
+        <!-- ========================================================================= -->
+        <section id="summary" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-lg bg-kaaf-blue/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-blue/50">01</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">الملخص التنفيذي</h2>
+            </div>
+
+            <div class="card-accent-blue rounded-3xl p-6 sm:p-10 shadow-premium space-y-8">
+                <p class="text-base sm:text-lg text-gray-200 leading-relaxed font-medium">
+                    تهدف هذه المبادرة إلى تصميم وتطوير تطبيق موبايل احترافي خاص بشركائنا، مرتبط بالمتجر الإلكتروني الحالي، بما يتيح للعملاء الوصول المباشر إلى المنتجات وإتمام الطلبات بسهولة وسرعة فائقة، مع توفير تجربة استخدام أسرع وأكثر سلاسة، وفتح قناة بيع وتسويق إضافية ومستقلة تدعم نمو المبيعات وتعزز ارتباط العملاء بالعلامة التجارية.
+                </p>
+
+                <!-- Core Pillars Colorful Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Blue Card -->
+                    <div class="card-accent-blue p-5 rounded-2xl space-y-2 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-blue/30 text-kaaf-blueLight flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h4 class="text-base font-extrabold text-white">تطبيق مستقل</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">أيقونة علامتك التجارية حاضرة دائماً على الشاشة الرئيسية لهاتف العميل.</p>
+                    </div>
+
+                    <!-- Purple Card -->
+                    <div class="card-accent-purple p-5 rounded-2xl space-y-2 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-purple/30 text-kaaf-purpleLight flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h4 class="text-base font-extrabold text-white">تجربة مستخدم أفضل</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">تنقل سلس وسرعة استجابة تقلل من الاحتكاك وتسهل الوصول للسلة.</p>
+                    </div>
+
+                    <!-- Green Card -->
+                    <div class="card-accent-green p-5 rounded-2xl space-y-2 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-green/30 text-kaaf-greenLight flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-base font-extrabold text-white">قناة بيع إضافية</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">رافد تسويقي مباشر يخلق فرص طلب متجددة دون الاعتماد الكامل على الإعلانات.</p>
+                    </div>
+
+                    <!-- Amber Card -->
+                    <div class="card-accent-amber p-5 rounded-2xl space-y-2 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-amber/30 text-kaaf-amber flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-rotate"></i>
+                        </div>
+                        <h4 class="text-base font-extrabold text-white">زيادة تكرار الشراء</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">إعادة استهداف مجانية ومباشرة للعملاء الحاليين عبر التنبيهات الفورية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 02: PROJECT OBJECTIVES (6 MULTI-COLORED CARDS)                    -->
+        <!-- ========================================================================= -->
+        <section id="objectives" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-lg bg-kaaf-purple/30 text-kaaf-purpleLight font-black text-xs border border-kaaf-purple/50">02</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">أهداف التطبيق الاستراتيجية</h2>
+                </div>
+                <span class="text-xs text-kaaf-cyanLight font-bold hidden sm:inline">6 ركائز بألوان مميزة للنمو الرقمي</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Objective 01: Blue Card -->
+                <div class="card-accent-blue p-6 rounded-3xl transition-all duration-300 shadow-card-float group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono font-black text-kaaf-cyanLight bg-kaaf-blue/30 px-3 py-1 rounded-full border border-kaaf-blue/40">01</span>
+                        <i class="fa-solid fa-arrow-trend-up text-kaaf-blueLight text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">زيادة معدلات المبيعات</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        توفير تجربة تسوق فورية وسريعة تشجع العميل على إتمام عمليات الشراء بدلاً من التردد.
+                    </p>
+                </div>
+
+                <!-- Objective 02: Purple Card -->
+                <div class="card-accent-purple p-6 rounded-3xl transition-all duration-300 shadow-card-float group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono font-black text-kaaf-purpleLight bg-kaaf-purple/30 px-3 py-1 rounded-full border border-kaaf-purple/40">02</span>
+                        <i class="fa-solid fa-bullhorn text-kaaf-purpleLight text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">الوصول المباشر إلى العملاء</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        التواصل المباشر مع قاعدة عملائك على مدار الساعة دون قيود خوارزميات منصات التواصل.
+                    </p>
+                </div>
+
+                <!-- Objective 03: Green Card -->
+                <div class="card-accent-green p-6 rounded-3xl transition-all duration-300 shadow-card-float group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono font-black text-kaaf-greenLight bg-kaaf-green/30 px-3 py-1 rounded-full border border-kaaf-green/40">03</span>
+                        <i class="fa-solid fa-repeat text-kaaf-greenLight text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">رفع معدل تكرار الشراء</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        تحويل المشترين العابرين إلى عملاء دائمين من خلال سهولة إعادة الطلب بلمسة واحدة.
+                    </p>
+                </div>
+
+                <!-- Objective 04: Rose Card -->
+                <div class="card-accent-rose p-6 rounded-3xl transition-all duration-300 shadow-card-float group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono font-black text-kaaf-roseLight bg-kaaf-rose/30 px-3 py-1 rounded-full border border-kaaf-rose/40">04</span>
+                        <i class="fa-solid fa-cart-arrow-down text-kaaf-roseLight text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">تقليل السلات المهجورة</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        استعادة السلات المتروكة تلقائياً وتنبيه العميل لاستكمال طلبه قبل مغادرة التطبيق.
+                    </p>
+                </div>
+
+                <!-- Objective 05: Amber Card -->
+                <div class="card-accent-amber p-6 rounded-3xl transition-all duration-300 shadow-card-float group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono font-black text-kaaf-goldLight bg-kaaf-amber/30 px-3 py-1 rounded-full border border-kaaf-amber/40">05</span>
+                        <i class="fa-solid fa-award text-kaaf-gold text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">تعزيز الصورة الذهنية</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        ترسيخ مكانة العلامة التجارية كبراند موثوق ومحترف يمتلك تطبيقه الخاص على App Store وGoogle Play.
+                    </p>
+                </div>
+
+                <!-- Objective 06: Cyan Card -->
+                <div class="card-accent-cyan p-6 rounded-3xl transition-all duration-300 shadow-card-float group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono font-black text-kaaf-cyanLight bg-kaaf-cyan/30 px-3 py-1 rounded-full border border-kaaf-cyan/40">06</span>
+                        <i class="fa-solid fa-shop text-kaaf-cyan text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-2">إنشاء قناة بيع إضافية</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        تنويع قنوات الإيرادات وبناء أصل رقمي دائم يقلل من تكلفة اكتساب العميل (CAC) على المدى الطويل.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 03 & 04: SCOPE & E-COMMERCE INTEGRATION                           -->
+        <!-- ========================================================================= -->
+        <section id="scope" class="space-y-8">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-lg bg-kaaf-cyan/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-cyan/50">03 & 04</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">نطاق العمل والتكامل مع المتجر الإلكتروني</h2>
+            </div>
+
+            <!-- Scope Overview Card -->
+            <div class="p-6 sm:p-10 rounded-3xl bg-kaaf-darkSlate border border-kaaf-border space-y-6">
+                <p class="text-base text-gray-200 leading-relaxed">
+                    ستتولى <strong class="text-white">KAAF Marketing</strong> تصميم وبرمجة ونشر تطبيق موبايل احترافي مخصص بالكامل لمتجركم، مرتبط بشكل حي ومتزامن مع المتجر الإلكتروني الحالي لضمان توحيد العمليات التجارية دون الحاجة لإدارة منفصلة.
+                </p>
+
+                <!-- What We Build Feature Grid with colorful cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+                    <div class="card-accent-blue p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-cubes text-kaaf-cyanLight text-xl"></i>
+                        <div class="text-xs font-bold text-white">عرض المنتجات وتصنيفاتها</div>
+                    </div>
+                    <div class="card-accent-green p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-basket-shopping text-kaaf-greenLight text-xl"></i>
+                        <div class="text-xs font-bold text-white">استقبال وإدارة الطلبات</div>
+                    </div>
+                    <div class="card-accent-amber p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-credit-card text-kaaf-gold text-xl"></i>
+                        <div class="text-xs font-bold text-white">تجربة شراء ودفع سلسة</div>
+                    </div>
+                    <div class="card-accent-purple p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-arrows-rotate text-kaaf-purpleLight text-xl"></i>
+                        <div class="text-xs font-bold text-white">مزامنة البيانات الحية</div>
+                    </div>
+                    <div class="card-accent-rose p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-bell text-kaaf-roseLight text-xl"></i>
+                        <div class="text-xs font-bold text-white">الإشعارات الفورية (Push)</div>
+                    </div>
+                    <div class="card-accent-cyan p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-pen-nib text-kaaf-cyan text-xl"></i>
+                        <div class="text-xs font-bold text-white">تصميم UX/UI عصري</div>
+                    </div>
+                    <div class="card-accent-green p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-solid fa-gauge-high text-kaaf-greenLight text-xl"></i>
+                        <div class="text-xs font-bold text-white">أداء فائق واستقرار</div>
+                    </div>
+                    <div class="card-accent-blue p-4 rounded-2xl text-center space-y-2">
+                        <i class="fa-brands fa-apple text-kaaf-blueLight text-xl"></i>
+                        <div class="text-xs font-bold text-white">توافق iOS & Android</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-Commerce Integration Layer Diagram -->
+            <div id="integration" class="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-kaaf-cardBg via-kaaf-darkSlate to-kaaf-blueDeep border border-kaaf-blue/50 space-y-6">
+                <div class="text-center max-w-xl mx-auto space-y-2">
+                    <h3 class="text-xl font-black text-white">طبقة التكامل والربط التقني المتزامن</h3>
+                    <p class="text-xs text-gray-300">يتوافق التطبيق مع المنصة المشغلة لمتجركم الحالي عبر واجهات الربط (API Integration)</p>
+                </div>
+
+                <!-- Integration Flow Diagram -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-4">
+                    <!-- Left: Current Store Platform -->
+                    <div class="p-6 rounded-2xl bg-kaaf-dark/90 border border-kaaf-border text-center space-y-3">
+                        <span class="text-[10px] font-bold text-kaaf-cyanLight uppercase tracking-widest">مصدر البيانات الحالي</span>
+                        <h4 class="text-base font-extrabold text-white">المتجر الإلكتروني القائم</h4>
+                        <div class="flex items-center justify-center gap-2 flex-wrap pt-1 text-xs font-bold">
+                            <span class="px-2.5 py-1 rounded-lg bg-emerald-950/80 text-emerald-300 border border-emerald-500/40">سلة (Salla)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-purple-950/80 text-purple-300 border border-purple-500/40">زد (Zid)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-blue-950/80 text-blue-300 border border-blue-500/40">WooCommerce</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-rose-950/80 text-rose-300 border border-rose-500/40">Shopify</span>
+                        </div>
+                    </div>
+
+                    <!-- Middle: Integration Layer -->
+                    <div class="p-6 rounded-2xl bg-gradient-to-r from-kaaf-blueDeep to-kaaf-purple/30 border border-kaaf-cyan/50 text-center space-y-2 shadow-blue-glow">
+                        <div class="w-10 h-10 rounded-full bg-kaaf-cyan/20 text-kaaf-cyanLight flex items-center justify-center mx-auto text-base">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="text-sm font-black text-white">Integration Layer</h4>
+                        <p class="text-[11px] text-gray-300">مزامنة المنتجات، الأسعار، المخزون، والطلبات تلقائياً</p>
+                    </div>
+
+                    <!-- Right: Native Mobile App -->
+                    <div class="p-6 rounded-2xl bg-kaaf-dark/90 border border-kaaf-border text-center space-y-3">
+                        <span class="text-[10px] font-bold text-kaaf-gold uppercase tracking-widest">واجهة العميل النهائية</span>
+                        <h4 class="text-base font-extrabold text-white">تطبيق الموبايل المخصص</h4>
+                        <div class="flex items-center justify-center gap-3 pt-1 text-xs text-gray-300 font-bold">
+                            <span class="flex items-center gap-1.5 text-kaaf-cyanLight"><i class="fa-brands fa-apple text-base"></i> App Store</span>
+                            <span class="flex items-center gap-1.5 text-kaaf-greenLight"><i class="fa-brands fa-google-play text-base"></i> Google Play</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Note Callout -->
+                <div class="p-4 rounded-xl bg-kaaf-dark/80 border border-kaaf-border text-xs text-gray-400 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-info text-kaaf-gold mt-0.5"></i>
+                    <span><strong>ملاحظة فنية:</strong> يتم تحديد آلية التكامل والربط النهائية وفق المنصة المستخدمة في متجركم وإمكانياتها التقنية وواجهات الربط (APIs) المتاحة رسمياً.</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 05: PUSH NOTIFICATIONS                                            -->
+        <!-- ========================================================================= -->
+        <section id="push" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-lg bg-kaaf-rose/30 text-kaaf-roseLight font-black text-xs border border-kaaf-rose/50">05</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">الإشعارات الفورية (Push Notifications)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center card-accent-rose rounded-3xl p-6 sm:p-10 shadow-premium">
+                <!-- Text Features (7 Cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="space-y-2">
+                        <h3 class="text-xl sm:text-2xl font-black text-white">قناة تسويق مجانية ومباشرة في جيب عميلك</h3>
+                        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                            تتيح الإشعارات الفورية الوصول المباشر إلى شاشات هواتف العملاء دون تكاليف إعلانية إضافية، مما يمنحكم ميزة تنافسية كبرى لإطلاق العروض وتنشيط المبيعات.
+                        </p>
+                    </div>
+
+                    <!-- 3 Feature Points -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-cyan/30">
+                            <div class="w-9 h-9 rounded-xl bg-kaaf-cyan/20 text-kaaf-cyanLight flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-pen-ruler"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">تخصيص المحتوى الذكي</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">إرسال إشعارات مدعمة بنصوص تسويقية جذابة، صور للمنتجات، وروابط مباشرة لصفحات العرض.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30">
+                            <div class="w-9 h-9 rounded-xl bg-kaaf-purple/20 text-kaaf-purpleLight flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">الاستهداف والتصنيف</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">إرسال إشعارات لفئات محددة من العملاء وحملات مخصصة لجمهور معين حسب الإمكانيات المتاحة.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-rose/30">
+                            <div class="w-9 h-9 rounded-xl bg-kaaf-rose/20 text-kaaf-roseLight flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">القياس ومتابعة التفاعل</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">متابعة أداء الحملات ومعدلات فتح الإشعارات والتفاعل معها وفق أدوات التحليل المدمجة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mockup Notification Visual (5 Cols) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-xs space-y-3 bg-kaaf-dark p-4 rounded-3xl border border-kaaf-rose/40 shadow-2xl">
+                        <div class="text-[11px] text-gray-400 text-center font-bold pb-1 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-lock text-xs text-kaaf-roseLight"></i>
+                            <span>شاشة قفل هاتف العميل (Lock Screen)</span>
+                        </div>
+
+                        <!-- Notification Card 1 -->
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-r from-kaaf-blue/40 to-kaaf-cyan/30 border border-kaaf-cyan/50 shadow-lg backdrop-blur-md space-y-1.5">
+                            <div class="flex items-center justify-between text-[10px] text-gray-300">
+                                <span class="flex items-center gap-1 font-bold text-white">
+                                    <span class="w-3.5 h-3.5 rounded-full bg-kaaf-cyan inline-block"></span>
+                                    متجركم الإلكتروني
+                                </span>
+                                <span class="text-kaaf-cyanLight">الآن</span>
+                            </div>
+                            <div class="text-xs font-black text-white">خصم خاص لعملاء التطبيق 25% 🔥</div>
+                            <div class="text-[11px] text-gray-200 leading-tight">استخدم كود APP25 واستمتع بشحن مجاني على كافة المنتجات!</div>
+                        </div>
+
+                        <!-- Notification Card 2 -->
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-r from-kaaf-purple/40 to-kaaf-rose/30 border border-kaaf-purple/50 shadow-lg backdrop-blur-md space-y-1.5">
+                            <div class="flex items-center justify-between text-[10px] text-gray-300">
+                                <span class="flex items-center gap-1 font-bold text-white">
+                                    <span class="w-3.5 h-3.5 rounded-full bg-kaaf-rose inline-block"></span>
+                                    متجركم الإلكتروني
+                                </span>
+                                <span>منذ ساعتين</span>
+                            </div>
+                            <div class="text-xs font-black text-white">منتجاتك المفضلة تنتظرك في السلة 🛒</div>
+                            <div class="text-[11px] text-gray-200 leading-tight">أكمل طلبك الآن قبل نفاد الكمية من المخزون.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 06 & 07: UX/UI & PERFORMANCE                                      -->
+        <!-- ========================================================================= -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- UX/UI Design Card -->
+            <div class="card-accent-purple p-8 rounded-3xl space-y-6 shadow-card-float">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-lg bg-kaaf-purple/30 text-kaaf-purpleLight font-black text-xs border border-kaaf-purple/50">06</span>
+                    <h3 class="text-xl font-black text-white">تجربة المستخدم وتصميم الواجهات (UX/UI)</h3>
+                </div>
+
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    نصمم واجهات التطبيق وفق أعلى معايير سهولة الاستخدام العالمية لضمان رحلة عميل واضحة وسلسة تزيد من معدل التحويل.
+                </p>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-kaaf-darkSlate/80 border border-kaaf-purple/30 text-xs font-bold text-gray-200">
+                        <i class="fa-solid fa-check text-kaaf-purpleLight"></i>
+                        <span><strong>تصميم احترافي:</strong> واجهات عصرية وسهلة التصفح مريحة للعين.</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-kaaf-darkSlate/80 border border-kaaf-purple/30 text-xs font-bold text-gray-200">
+                        <i class="fa-solid fa-check text-kaaf-purpleLight"></i>
+                        <span><strong>هوية متكاملة:</strong> التطبيق يعكس الهوية البصرية لعلامتكم بدقة.</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-kaaf-darkSlate/80 border border-kaaf-purple/30 text-xs font-bold text-gray-200">
+                        <i class="fa-solid fa-check text-kaaf-purpleLight"></i>
+                        <span><strong>Responsive:</strong> توافق تام مع مختلف أحجام شاشات الهواتف.</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl bg-kaaf-darkSlate/80 border border-kaaf-purple/30 text-xs font-bold text-gray-200">
+                        <i class="fa-solid fa-check text-kaaf-purpleLight"></i>
+                        <span><strong>User Journey:</strong> تبسيط الرحلة من: التصفح ← السلة ← إتمام الطلب.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Card -->
+            <div class="card-accent-cyan p-8 rounded-3xl space-y-6 shadow-card-float">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-lg bg-kaaf-cyan/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-cyan/50">07</span>
+                    <h3 class="text-xl font-black text-white">الأداء وتجربة الاستخدام</h3>
+                </div>
+
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    سيتم تطوير التطبيق مع التركيز الكامل على السرعة وسهولة الاستخدام لتقليل الاحتكاك وزيادة إتمام عمليات الدفع.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/80 border border-kaaf-cyan/30 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-cyan/20 text-kaaf-cyanLight flex items-center justify-center mx-auto">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h4 class="text-sm font-black text-white">سرعة</h4>
+                        <p class="text-[11px] text-gray-400">تحميل واستجابة محسنة في ثوانٍ</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/80 border border-kaaf-cyan/30 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-blue/20 text-kaaf-blueLight flex items-center justify-center mx-auto">
+                            <i class="fa-solid fa-hand-pointer"></i>
+                        </div>
+                        <h4 class="text-sm font-black text-white">سهولة</h4>
+                        <p class="text-[11px] text-gray-400">رحلة شراء واضحة ومباشرة</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/80 border border-kaaf-cyan/30 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-kaaf-green/20 text-kaaf-greenLight flex items-center justify-center mx-auto">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-sm font-black text-white">استقرار</h4>
+                        <p class="text-[11px] text-gray-400">توافق عالي مع مختلف الأجهزة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 08, 09, 10: ROADMAP, REVISIONS & TIMELINE                         -->
+        <!-- ========================================================================= -->
+        <section id="roadmap" class="space-y-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-lg bg-kaaf-amber/30 text-kaaf-goldLight font-black text-xs border border-kaaf-amber/50">08, 09, 10</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">مراحل التنفيذ وخطة العمل</h2>
+                </div>
+                <span class="text-xs text-kaaf-gold font-bold">15 يوم عمل</span>
+            </div>
+
+            <!-- 8 Steps Multi-Colored Timeline Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+                <div class="card-accent-blue p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-cyanLight">01</span>
+                    <div class="text-xs font-extrabold text-white">تحليل المتطلبات</div>
+                </div>
+                <div class="card-accent-purple p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-purpleLight">02</span>
+                    <div class="text-xs font-extrabold text-white">تصميم UX/UI</div>
+                </div>
+                <div class="card-accent-green p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-greenLight">03</span>
+                    <div class="text-xs font-extrabold text-white">اعتماد التصميم</div>
+                </div>
+                <div class="card-accent-cyan p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-cyan">04</span>
+                    <div class="text-xs font-extrabold text-white">تطوير التطبيق</div>
+                </div>
+                <div class="card-accent-blue p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-blueLight">05</span>
+                    <div class="text-xs font-extrabold text-white">الربط بالمتجر</div>
+                </div>
+                <div class="card-accent-amber p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-amber">06</span>
+                    <div class="text-xs font-extrabold text-white">فحص واختبار</div>
+                </div>
+                <div class="card-accent-rose p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-roseLight">07</span>
+                    <div class="text-xs font-extrabold text-white">تجهيز النشر</div>
+                </div>
+                <div class="card-accent-green p-4 rounded-2xl text-center space-y-1.5 transition">
+                    <span class="text-xs font-mono font-black text-kaaf-greenLight">08</span>
+                    <div class="text-xs font-extrabold text-white">إطلاق التطبيق</div>
+                </div>
+            </div>
+
+            <!-- Two Sub-Cards: Timeline & Revision Policy -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Timeline Card (Amber/Gold Theme) -->
+                <div class="card-accent-amber p-6 sm:p-8 rounded-3xl flex items-center gap-6">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-kaaf-amber to-amber-700 text-slate-950 flex flex-col items-center justify-center shrink-0 shadow-lg">
+                        <span class="text-3xl font-black leading-none font-ibm">15</span>
+                        <span class="text-[10px] font-extrabold mt-1">يوم عمل</span>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-base font-black text-white">مدة تنفيذ المشروع</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            تبدأ مدة التنفيذ من تاريخ استلام جميع البيانات والمعلومات والمتطلبات الفنية اللازمة لبدء العمل من الطرف الثاني.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Revisions Card (Cyan Theme) -->
+                <div class="card-accent-cyan p-6 sm:p-8 rounded-3xl flex items-center gap-6">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-kaaf-cyan to-blue-800 text-white flex flex-col items-center justify-center shrink-0 shadow-lg">
+                        <span class="text-3xl font-black leading-none font-ibm">3</span>
+                        <span class="text-[10px] font-bold mt-1">تعديلات</span>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-base font-black text-white">المراجعة واعتماد التصميم</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            يحق للعميل مراجعة التصميم المبدئي قبل بدء البرمجة الفعلية، مع إتاحة 3 جولات تعديل مجانية على التصميم المبدئي.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 11: APP SUBSCRIPTION PLANS (PRICING WITH DISTINCT THEMES)         -->
+        <!-- ========================================================================= -->
+        <section id="pricing" class="space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-kaaf-blue/30 border border-kaaf-blueLight/50 text-kaaf-cyanLight text-xs font-black">
+                    <i class="fa-solid fa-tag text-kaaf-gold"></i>
+                    <span>باقات الاشتراك وتطوير التطبيق</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">استثمار واضح وخيارات مرنة لنمو متجرك</h2>
+                <p class="text-xs sm:text-sm text-gray-300 font-medium">اختر الخطة التي تتناسب مع خطط التوسع والمدى الزمني لنشاطكم التجاري</p>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-4">
+
+                <!-- PLAN 01: 1 YEAR (CYAN / BLUE THEME) -->
+                <div class="card-accent-cyan p-8 rounded-3xl flex flex-col justify-between space-y-6 shadow-card-float transition">
+                    <div class="space-y-4">
+                        <div class="text-xs font-bold text-kaaf-cyanLight uppercase tracking-wider font-ibm">خطة السنة الواحدة</div>
+                        <h3 class="text-xl font-black text-white">سنة واحدة</h3>
+                        
+                        <div class="pt-2 flex items-baseline gap-1">
+                            <span class="text-4xl font-black text-white font-ibm">3,500</span>
+                            <span class="text-sm font-bold text-gray-400">ريال سعودي</span>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">تطوير وتشغيل تطبيق الموبايل مع الربط بالمتجر لمدة سنة كاملة.</p>
+                    </div>
+
+                    <div class="border-t border-kaaf-cyan/30 pt-6 space-y-3 text-xs text-gray-200">
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-cyanLight"></i> تطبيق كامل لنظامي iOS و Android</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-cyanLight"></i> ربط وتكامل مع المتجر الإلكتروني</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-cyanLight"></i> إرسال الإشعارات الفورية (Push)</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-cyanLight"></i> 3 جولات تعديل على التصميم</div>
+                    </div>
+                </div>
+
+                <!-- PLAN 02: 3 YEARS (RECOMMENDED - GOLD / KAAF ROYAL BLUE THEME) -->
+                <div class="p-8 rounded-3xl bg-gradient-to-b from-kaaf-darkSlate via-kaaf-cardBg to-kaaf-blueDeep border-2 border-kaaf-gold relative flex flex-col justify-between space-y-6 shadow-2xl shadow-kaaf-gold/20 transform md:-translate-y-3">
+                    <!-- Recommended Badge -->
+                    <div class="absolute -top-4 right-8 px-4 py-1 rounded-full bg-gradient-to-r from-kaaf-gold to-amber-500 text-slate-950 font-black text-xs shadow-md">
+                        الأكثر قيمة وتوفيراً (توصيتنا)
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="text-xs font-bold text-kaaf-gold uppercase tracking-wider font-ibm">خطة الثلاث سنوات</div>
+                        <h3 class="text-2xl font-black text-white">3 سنوات</h3>
+                        
+                        <div class="pt-2 flex items-baseline gap-1">
+                            <span class="text-5xl font-black text-kaaf-goldLight font-ibm">6,000</span>
+                            <span class="text-sm font-bold text-gray-300">ريال سعودي</span>
+                        </div>
+                        <p class="text-xs text-emerald-100/90 leading-relaxed">الخيار الأكثر توازناً للاستفادة طويلة المدى مع توفير 4,500 ريال مقارنة بالاشتراك السنوي.</p>
+                    </div>
+
+                    <div class="border-t border-kaaf-gold/40 pt-6 space-y-3 text-xs text-white">
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check-double text-kaaf-gold"></i> تطبيق كامل لنظامي iOS و Android</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check-double text-kaaf-gold"></i> تشغيل ودعم مستمر لمدة 3 سنوات</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check-double text-kaaf-gold"></i> مزامنة حية كاملة مع المتجر الإلكتروني</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check-double text-kaaf-gold"></i> إشعارات فورية غير محدودة</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check-double text-kaaf-gold"></i> أولوية في الإطلاق والتسليم</div>
+                    </div>
+                </div>
+
+                <!-- PLAN 03: UNLIMITED (PURPLE THEME) -->
+                <div class="card-accent-purple p-8 rounded-3xl flex flex-col justify-between space-y-6 shadow-card-float transition">
+                    <div class="space-y-4">
+                        <div class="text-xs font-bold text-kaaf-purpleLight uppercase tracking-wider font-ibm">خطة الاستخدام المفتوح</div>
+                        <h3 class="text-xl font-black text-white">استخدام غير محدود</h3>
+                        
+                        <div class="pt-2 flex items-baseline gap-1">
+                            <span class="text-4xl font-black text-white font-ibm">9,000</span>
+                            <span class="text-sm font-bold text-gray-400">ريال سعودي</span>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">استخدام مفتوح ودائم للتطبيق كأصل رقمي ثابت للعلامة التجارية.</p>
+                    </div>
+
+                    <div class="border-t border-kaaf-purple/30 pt-6 space-y-3 text-xs text-gray-200">
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-purpleLight"></i> تطبيق كامل لنظامي iOS و Android</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-purpleLight"></i> رخصة استخدام غير محدودة زمنياً</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-purpleLight"></i> تكامل مستمر مع المتجر الإلكتروني</div>
+                        <div class="flex items-center gap-2.5"><i class="fa-solid fa-check text-kaaf-purpleLight"></i> ميزات وإشعارات فورية مفتوحة</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 12: APP STORE FEES                                                -->
+        <!-- ========================================================================= -->
+        <section class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-lg bg-kaaf-green/30 text-kaaf-greenLight font-black text-xs border border-kaaf-green/50">12</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">رسوم حسابات المتاجر الرسمية (Store Accounts)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Google Play Card (Green Theme) -->
+                <div class="card-accent-green p-6 sm:p-8 rounded-3xl space-y-3 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-950/90 border border-emerald-500/50 text-emerald-400 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-brands fa-google-play"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-black text-white">Google Play Developer</h3>
+                            <span class="text-lg font-black text-kaaf-greenLight font-ibm">$25</span>
+                        </div>
+                        <p class="text-xs text-gray-300 font-bold">رسوم تسجيل حساب المطور لمرة واحدة فقط (مدى الحياة).</p>
+                        <p class="text-[11px] text-gray-400">تُسدد مباشرة لشركة Google لفتح الحساب ونشر التطبيق على أجهزة أندرويد.</p>
+                    </div>
+                </div>
+
+                <!-- Apple Developer Card (Blue Theme) -->
+                <div class="card-accent-blue p-6 sm:p-8 rounded-3xl space-y-3 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-950/90 border border-blue-500/50 text-blue-400 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-brands fa-apple"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-black text-white">Apple Developer Program</h3>
+                            <span class="text-lg font-black text-kaaf-blueLight font-ibm">$99 / سنويًا</span>
+                        </div>
+                        <p class="text-xs text-gray-300 font-bold">رسوم اشتراك سنوي رسمي بحساب المطور من Apple.</p>
+                        <p class="text-[11px] text-gray-400">تُسدد مباشرة لشركة Apple للحفاظ على التطبيق منشوراً على متجر App Store.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Pricing Transparency Note -->
+            <div class="p-4 rounded-2xl bg-kaaf-dark/80 border border-kaaf-border text-xs text-gray-400 flex items-center gap-3">
+                <i class="fa-solid fa-scale-balanced text-kaaf-gold text-base"></i>
+                <span><strong>توضيح مالي:</strong> رسوم حسابات المتاجر الرسمية هي مبالغ تنظيمية خاصة بشركتي Apple وGoogle ومستقلة تماماً عن تكلفة تطوير وبرمجة التطبيق.</span>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 13 & 14: CONFIDENTIALITY & CLIENT REQUIREMENTS                    -->
+        <!-- ========================================================================= -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Confidentiality & IP (Green Theme) -->
+            <div class="card-accent-green p-8 rounded-3xl space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-lg bg-kaaf-green/30 text-kaaf-greenLight font-black text-xs border border-kaaf-green/50">13</span>
+                    <h3 class="text-xl font-black text-white">السرية والملكية الفكرية</h3>
+                </div>
+
+                <div class="space-y-3 text-xs text-gray-300 leading-relaxed">
+                    <div class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-kaaf-greenLight mt-0.5"></i>
+                        <span>الالتزام التام بالحفاظ على سرية بيانات ومعلومات العميل ومبيعات متجره.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-kaaf-greenLight mt-0.5"></i>
+                        <span>استخدام كافة البيانات المصرح بها لأغراض تنفيذ وبرمجة المشروع فقط.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-kaaf-greenLight mt-0.5"></i>
+                        <span>عدم مشاركة أي بيانات أو معلومات تقنية مع أطراف ثالثة دون موافقة خطية.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-kaaf-greenLight mt-0.5"></i>
+                        <span>استمرار سريان بنود السرية وحماية البيانات بعد انتهاء مدة المشروع.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-kaaf-greenLight mt-0.5"></i>
+                        <span>انتقال حقوق الملكية الفكرية الناتجة عن المشروع للعميل بعد سداد كامل المستحقات.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Requirements Checklist (Purple Theme) -->
+            <div class="card-accent-purple p-8 rounded-3xl space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-lg bg-kaaf-purple/30 text-kaaf-purpleLight font-black text-xs border border-kaaf-purple/50">14</span>
+                    <h3 class="text-xl font-black text-white">متطلبات البدء (Checklist)</h3>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2.5 text-xs text-gray-300 font-bold">
+                    <div class="p-2.5 rounded-xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30 flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-kaaf-purpleLight"></i> بيانات الشركة
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30 flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-kaaf-purpleLight"></i> الهوية والشعار
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30 flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-kaaf-purpleLight"></i> بيانات وصور المنتجات
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30 flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-kaaf-purpleLight"></i> صلاحيات ربط المتجر
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30 flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-kaaf-purpleLight"></i> نصوص وأقسام المتجر
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-kaaf-darkSlate/90 border border-kaaf-purple/30 flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-kaaf-purpleLight"></i> حسابات نشر المتاجر
+                    </div>
+                </div>
+
+                <p class="text-[11px] text-kaaf-gold font-medium">
+                    * تبدأ مدة التنفيذ الرسمية (15 يوم عمل) فور اكتمال المتطلبات الأساسية أعلاه.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 15 & 16: WHY KAAF & OUR RECOMMENDATION                             -->
+        <!-- ========================================================================= -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-lg bg-kaaf-blue/30 text-kaaf-blueLight font-black text-xs border border-kaaf-blue/50">15 & 16</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">لماذا KAAF والتوصية التنفيذية</h2>
+            </div>
+
+            <!-- Why KAAF 4 Colorful Pillars -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="card-accent-blue p-6 rounded-3xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-blue/30 text-kaaf-blueLight flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-chess-knight"></i>
+                    </div>
+                    <h4 class="text-base font-black text-white">رؤية استراتيجية</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">ربط التطبيق مباشرة بأهداف التسويق وتنمية المبيعات وليس مجرد برمجة معزولة.</p>
+                </div>
+
+                <div class="card-accent-purple p-6 rounded-3xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-purple/30 text-kaaf-purpleLight flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h4 class="text-base font-black text-white">تجربة مستخدم رائدة</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">تصميم واجهات سهلة وعصرية تضمن أعلى معدلات إتمام السلة وإعادة الطلب.</p>
+                </div>
+
+                <div class="card-accent-green p-6 rounded-3xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-green/30 text-kaaf-greenLight flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <h4 class="text-base font-black text-white">تكامل المنظومة</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">ربط كامل ومتزامن مع متجركم الحالي لضمان سلاسة العمليات وتوحيد البيانات.</p>
+                </div>
+
+                <div class="card-accent-cyan p-6 rounded-3xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-cyan/30 text-kaaf-cyanLight flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h4 class="text-base font-black text-white">محرك للنمو المستمر</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">تحويل التطبيق إلى قناة تسويق مباشرة ومجانية لتقليل تكاليف الإعلانات المدفوعة.</p>
+                </div>
+            </div>
+
+            <!-- Recommendation Box (Luxury Gold & KAAF Blue) -->
+            <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-kaaf-blueDeep via-kaaf-darkSlate to-kaaf-purple/30 border-2 border-kaaf-gold shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-right">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-kaaf-gold/20 text-kaaf-goldLight text-xs font-black">
+                        <i class="fa-solid fa-star"></i>
+                        <span>توصية KAAF الاستراتيجية</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black text-white">البدء بخطة الـ 3 سنوات (6,000 ريال)</h3>
+                    <p class="text-xs sm:text-sm text-gray-200 max-w-2xl leading-relaxed">
+                        نوصي بالبدء بخطة الثلاث سنوات بقيمة 6,000 ريال، باعتبارها الخيار الأكثر توازناً بين التكلفة والاستفادة طويلة المدى، مع تجهيز التطبيق للربط بالمتجر الإلكتروني وإتاحة الإشعارات الفورية والاستفادة منه كقناة إضافية للبيع والتواصل المباشر مع العملاء.
+                    </p>
+                </div>
+
+                <div class="text-center bg-black/60 p-6 rounded-2xl border border-kaaf-gold/50 shrink-0 min-w-[200px]">
+                    <div class="text-xs text-gray-400 font-bold">قيمة الاستثمار</div>
+                    <div class="text-3xl font-black text-kaaf-goldLight font-ibm my-1">6,000 ريال</div>
+                    <div class="text-[11px] text-emerald-300 font-bold">تغطية شاملة لـ 3 سنوات</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- FINAL CTA CLOSING PAGE                                                    -->
+        <!-- ========================================================================= -->
+        <section class="relative rounded-3xl overflow-hidden p-8 sm:p-16 bg-gradient-to-br from-kaaf-blueDeep via-kaaf-darkSlate to-kaaf-darkest border border-kaaf-blueLight/40 text-center space-y-8 shadow-premium">
+            <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+            <div class="max-w-2xl mx-auto space-y-4">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-kaaf-blueLight shadow-blue-glow mx-auto p-0.5 bg-black">
+                    <img src="https://i.ibb.co/qLQcG9vr/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="KAAF Marketing" class="w-full h-full object-cover rounded-xl">
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+                    جاهزون لبناء تجربة رقمية <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-kaaf-cyan via-kaaf-blueLight to-kaaf-purpleLight">
+                        أقرب لعملائكم
+                    </span>
+                </h2>
+
+                <p class="text-sm sm:text-base text-gray-300 font-medium leading-relaxed">
+                    من المتجر الإلكتروني إلى تطبيق متكامل على هواتف عملائكم يعزز المبيعات ويرسخ الحضور الرقمي.
+                </p>
+            </div>
+
+            <div class="pt-2 flex items-center justify-center">
+                <a href="https://kaafmarketing.sa/" target="_blank" class="px-10 py-4 rounded-2xl bg-gradient-to-r from-kaaf-blue via-kaaf-blueLight to-kaaf-purple hover:brightness-110 text-white font-black text-sm shadow-xl flex items-center gap-3 transition-transform hover:-translate-y-0.5">
+                    <span>زيارة الموقع الرسمي لـ KAAF</span>
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Proposal Footer Metadata -->
+            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-2">
+                <div>
+                    <strong>KAAF Marketing</strong> — شريك النمو والتحول الرقمي
+                </div>
+                <div>
+                    الموقع: <a href="https://kaafmarketing.sa/" target="_blank" class="text-kaaf-cyanLight hover:underline font-bold">kaafmarketing.sa</a>
+                </div>
+                <div class="text-gray-400">
+                    وثيقة عمل ومقترح فني وتجاري
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
